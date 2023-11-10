@@ -102,3 +102,15 @@ docker build -t image_name(url-shortener) .
 
 
 docker run -it -p 8000:8000 -e MONGO_URL=mongourl url-shorterner-nodejs
+
+
+
+#docker volume
+
+docker memory
+
+
+
+docker run -it -v (path of the of folder which you want to mount to store data with container):(path inside container, (/home/xyz))  busybox
+
+#create voulme
