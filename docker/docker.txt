@@ -1,0 +1,104 @@
+install docker desktop from here to visualize all containers, images and their configurations
+https://www.docker.com/products/docker-desktop/
+
+
+What is Docker and why it is used?
+Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime.
+
+Docker is based on containers and images
+
+Containers are just empty machine, on which we can run images, we can run multiple containers, every container is isolated, means data which is inside container 1 will be to accessable in container 2
+
+images are just like os, which contains all our porject configurations, like tools, code, files, libraries etc
+
+
+#list the running containers
+
+docker container ls
+
+#to list all containers 
+
+docker container ls-a
+
+#to run any specfic container
+
+docker start container_name
+
+#to stop any running container
+
+docker stop container_name
+
+#to download any images
+ 
+docker run -it image_name (ubuntu,nodejs, etc)    it(interactive, you stay it that container until u exit)
+
+
+
+#to run any container and don't want to exit
+
+docker exec -it container_name bash
+
+#to execute any container command without going to container 
+
+docker exec container_name command 
+docker exec unbuntu mkdir
+
+
+
+#to list images
+
+docker images
+
+
+#port mapping
+
+node server running on 8000 in side container
+to access server on browser we have to expose the port or port mapping
+
+exmaple.
+
+docker run -it -p 1025:1025 mailhog/mailhog
+
+
+#set environment variable
+
+docker run -it -p 1025:1025 -e key=value -e key=value mailhog/mailhog
+
+
+#create docker image for nodejs applications
+
+create Dockerfile and write all files and library like this
+
+FROM ubuntu
+
+RUN apt-get update
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get upgrade -y
+RUN apt-get install -y nodejs
+
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+COPY index.js index.js
+COPY connect.js connect.js
+COPY controller controller
+COPY model model
+COPY routes routes
+COPY .env .env
+
+
+RUN npm install
+
+ENTRYPOINT [ "node", "index.js" ]
+
+
+
+after that run docker build command to build image
+
+docker build -t image_name(url-shortener) .
+
+
+
+
+
+docker run -it -p 8000:8000 -e MONGO_URL=mongourl url-shorterner-nodejs
