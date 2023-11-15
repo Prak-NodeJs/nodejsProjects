@@ -239,9 +239,95 @@
 
 // Q24
 
-function sayHi() {
-    return (() => 0)(
-    )
-}
+// function sayHi() {
+//     return (() => 0)(
+//     )
+// }
 
-console.log(typeof sayHi())
+// console.log(typeof sayHi())
+// output number
+
+
+// Q25
+// const numbers = [1, 2, 3]
+// numbers[9] = 11
+// console.log(numbers)
+
+// output
+// [ 1, 2, 3, <6 empty items>, 11 ]
+
+// Q26
+// const numbers = [1, 2, 3]
+// numbers[3] = numbers
+// console.log(numbers)
+
+{/* <ref *1> [ 1, 2, 3, [Circular *1] ] */ }
+
+// Q27
+
+// 29 Everything in javascript is either a...
+// A: primitive or Object
+// B: function or object
+// C:trick question! only objects
+// B: number or object
+
+// output
+// primitive or Object
+
+// Q28
+// console.log(!!null)
+// console.log(!!"")
+// console.log(!!1)
+
+// Q29
+// console.log(setInterval(() => console.log('hi'), 1000))
+// console.log(setInterval(() => console.log('hi'), 1000))
+// console.log(setInterval(() => console.log('hi'), 1000))
+
+
+// Q30
+// console.log(3 + 4 + '5')
+
+// Q31
+// console.log(typeof 3 + 4 + '5')
+//output number45
+
+// Q32
+// function getInfo(number){
+//     member.name='anil'
+// }
+
+// const person = {name:'sarah'}
+// getInfo(person)
+// console.log(person)
+
+//output
+// {name:'anil'}
+// whenever we pass any object to a fucntion it passed as a reference
+
+// Q34
+// function Car() {
+//     this.make = 'tata'
+//     return { make: 'Kia' }
+// }
+
+// const myCar = new Car()
+// console.log(myCar.make)
+
+//output
+// make:'Kia'
+
+// Q35
+// let x = y = 10
+// console.log(y)
+
+// output 10
+
+// Q36
+// console.log(!true - true)
+
+// -1
+
+// Q37
+// console.log(true + +'10')
+// 11
