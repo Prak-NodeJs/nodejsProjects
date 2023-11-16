@@ -1,0 +1,133 @@
+.header-container {
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+    width: 100%;
+    font-family: "Switzer" !important;
+    height: 78px;
+    box-sizing: border-box;
+}
+
+.header {
+    box-sizing: border-box;
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 30px;
+    width: 130px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7px;
+}
+
+.menu p {
+    color: #fff;
+    font-size: 15px;
+}
+
+.search-div {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    align-items: center;
+    width: 42%;
+    height: 35px;
+    border-radius: 5px;
+    padding: 2px;
+
+}
+
+.icon-menu {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.searchInput {
+    width: 100%;
+    padding-left: 10px;
+    outline: none;
+    border: none;
+}
+
+.search-icon {
+    color: black;
+    padding: 10px;
+}
+
+.header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 28%;
+    gap: 20px;
+}
+
+.icon {
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.set-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.badge {
+    position: relative;
+    top: -10px;
+    font-size: 13px;
+    right: 10px;
+    background-color: green;
+    color: white;
+    border-radius: 50%;
+}
+
+
+
+
+/* Responsiveness */
+
+@media screen and (max-width: 1300px) {
+    .header {
+        width: 100%;
+        padding: 0px 10px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .header {
+        width: 100%;
+        padding: 0px 10px;
+    }
+}
