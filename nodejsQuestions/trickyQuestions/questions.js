@@ -331,3 +331,140 @@
 // Q37
 // console.log(true + +'10')
 // 11
+
+// Q38
+// count character
+
+// const str = "hare krishna hare krishna krishna krishna hare hare"
+
+// const obj = {}
+
+// for (let f of str) {
+//     if (obj[f]) {
+//         obj[f] += 1
+//     }
+//     else {
+//         obj[f] = 1
+//     }
+// }
+
+// console.log(obj)
+
+
+// Q39
+//statically typed langauge
+// is a language where we define datatype of variable while declaring it
+
+// Q40
+// console.log(-0 == 0)  = true
+// console.log(-0 === 0) = true
+
+
+// Q40
+// make length 0.
+// let arr = [1, 3, 5, 6]
+// arr.length = 0
+// console.log(arr)
+
+// Q41
+// let a = 10
+// let b = 20
+// let c = 30 - (a = b + 10)
+// console.log(`c = ${c}`)
+
+// output 0.
+
+// Q41
+
+// console.log('A')
+// !async function () {
+//     const x = await 5;
+//     console.log('c')
+// }()
+
+// console.log("B")
+//   ouput a,b,c
+
+// Q42
+// console.log(false == [])
+// console.log(false == ![])
+
+// o/p true true
+
+// Q43
+// console.log(888888888888888888)
+// 888888888888888800
+
+// Q44
+// const arr = ["ab", "cd", "ef"]
+// const str = "abcdef"
+
+// const strMatch = str.includes('a')
+// const arrMatch = arr.includes('a')
+
+// console.log(strMatch, arrMatch)
+// o/p true false
+
+// Q45
+// const obj = { name: 'X' }
+
+// delete obj.name;
+// obj.name = 'Y'
+
+// Q46
+// function init(x, y, z) { }
+// function end(a, b = 0, c) { }
+
+// console.log(init.length)
+// console.log(end.length)
+
+
+// o/p 3 1
+// 47
+
+// const arr = [1, 2, 3]
+// console.log(arr[5])
+
+// o/p undefined
+
+// Q48
+// 5 ways to create obj
+
+// const obj1 = {}
+
+// const obj2 = new Object()
+
+// const obj3 = Object.assign({}, {})
+
+// const obj4 = Object.create({})
+
+// function test() { }
+
+// const obj5 = new test()
+// console.log(obj1, obj2, obj3, obj4, obj5
+// )
+
+// Q49
+// const obj = {}
+// obj[obj['A'] = 'B'] = "c"
+// console.log(obj)
+
+// o / p { A: 'B', B: 'c' }
+
+// Q50
+
+// let str = new String('js')
+// console.log(str === 'js')
+// console.log(str == 'js')
+
+// o/p    false true
+
+// const data1 = ['c', 'b', 'f']
+// const data2 = ['c', 'b', 'f']
+
+// const d = data1.slice().reverse()
+// data2.reverse()
+
+// console.log(d)
+// console.log(data1)
+// console.log(data2)
