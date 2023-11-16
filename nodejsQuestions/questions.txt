@@ -1,0 +1,435 @@
+Nodejs
+
+Q1. what is nodejs
+Node.js is an open-source, cross-platform JavaScript runtime environment that allows developers to execute JavaScript code server-side. It is built on the V8 JavaScript runtime engine, which is the same engine that powers the Google Chrome browser. Node.js enables the use of JavaScript for server-side scripting, allowing developers to create scalable and high-performance web applications.
+
+
+Q2. what is runtime
+A runtime environment is a software framework that provides the necessary resources for executing and running programs or applications. It includes components such as libraries, APIs (Application Programming Interfaces), and other essential tools that enable the execution of code written in a specific programming language. The runtime environment plays a crucial role in managing the execution of a program by providing the necessary services and support during runtime.
+
+Q3. what is event driven
+In Node.js, being event-driven means that the execution of your code is triggered by events, and the flow of the program is determined by these events rather than a linear sequence of statements. This is facilitated by the event loop, a core concept in Node.js that allows it to handle many connections simultaneously while remaining non-blocking.
+
+const fs = require('fs');
+
+// Asynchronous file read
+fs.readFile('example.txt', 'utf-8', (err, data) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    console.log(data);
+    console.log('File reading completed.');
+});
+
+console.log('Reading file...');
+
+ Node.js is event-driven because it allows you to define functions (callbacks) that will be executed in response to specific events (such as file reading completion, incoming HTTP requests, etc.), allowing for non-blocking and efficient handling of multiple tasks simultaneously.
+
+
+Q4.what is middleware
+, middleware in Node.js is like a filter or a processing step that your web server goes through when handling a request. It's a way to add extra functionality to your server, such as logging, authentication, or modifying the request or response, without directly modifying your main application logic
+
+. 
+Q5.what is bodyparser..
+body-parser is a middleware for Express.js, a popular web framework for Node.js. It is used to parse the body of incoming HTTP requests and make the parsed data available in your Express application. This is particularly useful when dealing with POST requests or any request that sends data in the request body.
+
+
+Q6.what is promises, give one example,
+In JavaScript, a promise is an object representing the eventual completion or failure of an asynchronous operation. It is a way to handle asynchronous code in a more organized and readable manner.
+
+const checkNumber = (a) => {
+    return new Promise((resolve, reject) => {
+        if (a == 2) {
+            resolve(a)
+        } else {
+            reject('erorr')
+        }
+    })
+}
+
+checkNumber(3).then(data => { console.log(data) }).catch(error => console.log("this", error))
+
+
+Q7 what is async await
+async and await are keywords in JavaScript that are used to work with asynchronous code. Asynchronous code allows you to perform operations without blocking the execution of the rest of your code, which is important for tasks like fetching data from a server, reading files, or handling user input.
+
+async function fetchData() {
+  let response = await fetch('https://api.example.com/data');
+  let data = await response.json();
+  return data;
+}
+
+Q8. what is single threaded,
+ a thread is the smallest unit of execution within a process. A process is an independent program that runs in its own memory space, and within a process, multiple threads can exist. 
+
+
+
+
+Q9. what is callback
+In Node.js, a callback is a function that is passed as an argument to another function and is intended to be executed after the completion of an asynchronous operation. Callbacks are a fundamental concept in Node.js, allowing you to work with non-blocking operations such as file reading, network requests, or database queries.
+
+examples.
+
+
+const fs = require('fs');
+
+ // Function to read the contents of a file asynchronously
+function readFileAsync(filePath, callback) {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            // Pass the error to the callback
+            callback(err, null);
+        } else {
+            // Pass the data to the callback
+            callback(null, data);
+        }
+    });
+}
+
+// // Example usage of the readFileAsync function
+const filePath = 'D:/NodejsProjects/nodejsProject/nodejsQuestions/data.txt';
+
+readFileAsync(filePath, (error, content) => {
+    if (error) {
+        console.error(`Error reading the file: ${error.message}`);
+    } else {
+        console.log(`File content: ${content}`);
+    }
+});
+
+
+
+const axios = require('axios');
+
+// Function to fetch data from an API asynchronously
+function fetchDataFromAPI(apiUrl, callback) {
+    axios.get(apiUrl)
+        .then(response => {
+            // Simulating asynchronous behavior with setTimeout
+            setTimeout(() => {
+                callback(null, response.data);
+            }, 1000);
+        })
+        .catch(error => {
+            callback(error, null);
+        });
+}
+
+// Example usage
+const apiUrl = 'https://jsonplaceholder.typicode.com/todos/1';
+fetchDataFromAPI(apiUrl, (error, data) => {
+    if (error) {
+        console.error(`Error fetching data: ${error.message}`);
+    } else {
+        console.log(`Fetched data: ${JSON.stringify(data)}`);
+    }
+});
+
+
+
+function add(a, b, callback) {
+    if (a && b) {
+        callback(null, a + b)
+    } else {
+        callback('error happend', null)
+    }
+}
+
+add(3, 4, (error, data) => {
+    if (error) {
+        console.log(error)
+    } else {
+        console.log(data)
+    }
+})
+
+
+Q10.what is hoisting with example
+
+This means that you can use a variable or a function before it has been declared in your code. However, it's important to note that only the declarations are hoisted, not the initializations.
+
+console.log(x); // Output: undefined
+var x = 5;
+console.log(x); // Output: 5
+
+Q11. why to use nodejs why not python or java
+
+The choice between Node.js, Python, or Java depends on various factors, and each has its strengths and weaknesses. Here are some considerations for choosing Node.js and reasons why it might be preferred in certain situations over Python or Java:
+
+Reasons to use Node.js:
+Single Language for Full Stack:
+
+Node.js uses JavaScript on both the server and client sides. This can streamline development, allowing developers to use the same language (JavaScript) throughout the entire stack.
+Asynchronous and Non-blocking:
+
+Node.js is designed to be asynchronous and non-blocking, making it well-suited for handling a large number of concurrent connections with low overhead. This is particularly advantageous for applications that require real-time features.
+Fast Execution:
+
+Node.js is built on the V8 JavaScript engine from Google, known for its fast execution. This can be beneficial for applications with high I/O and real-time requirements.
+
+Comparisons:
+Node.js vs. Python:
+Use Node.js when you need a fast, scalable, and non-blocking I/O solution.
+Use Python when you want a versatile language suitable for various applications, including web development, data analysis, and machine learning.
+Node.js vs. Java:
+Use Node.js for lightweight, event-driven, and scalable applications.
+Use Java for large-scale enterprise applications where strong typing, extensive libraries, and robust frameworks are preferred.
+
+
+what jwt, algorithm is used, default expire time,
+ if the "exp" claim is not set, the token will not expire by default. However, setting a reasonable expiration time is a good practice to enhance the security of your application.
+
+
+
+Q12. some question on settimeout, function
+setTimeout and setInterval are functions in JavaScript used for scheduling the execution of code after a specified delay.
+
+setTimeout Function:
+The setTimeout function is used to execute a specified function or code block after a specified delay (in milliseconds). It schedules a one-time execution.
+function delayedMessage(message) {
+  console.log(`Delayed message: ${message}`);
+}
+
+// Execute the delayedMessage function after 2000 milliseconds (2 seconds)
+setTimeout(delayedMessage, 2000, 'Hello, after 2 seconds');
+
+.setInterval Function:
+The setInterval function is used to repeatedly execute a specified function or code block at a defined interval.
+
+let counter = 0;
+
+function incrementCounter() {
+  counter++;
+  console.log(`Counter: ${counter}`);
+}
+
+// Execute the incrementCounter function every 1000 milliseconds (1 second)
+const intervalId = setInterval(incrementCounter, 1000);
+
+// After 5000 milliseconds (5 seconds), stop the interval
+setTimeout(() => {
+  clearInterval(intervalId);
+  console.log('Interval stopped after 5 seconds');
+}, 5000);
+
+
+
+Q13.what is difference between dev dependencies and simple dependicies,
+dependencies:
+Purpose: These are the packages that are required for the application to run in a production environment.
+Installation: When someone installs your application or library using npm, both the regular dependencies and their dependencies will be installed.
+Example: Libraries, frameworks, or modules that are essential for the application to function in production.
+
+devDependencies:
+Purpose: These are packages that are only needed during development, testing, and build processes.
+Installation: When someone installs your application and runs npm install --production or a similar command, the packages listed in devDependencies will not be installed.
+Example: Testing frameworks, build tools, linters, and other tools used in the development and testing workflows but not required for the production runtime.
+
+
+Q15.difference between spread and rest operator with one exmaple
+Spread and Rest Operators:
+
+The spread operator (...) allows you to spread elements of an array or object. The rest operator is used to represent an indefinite number of arguments as an array.
+javascript
+Copy code
+const arr = [1, 2, 3];
+const newArr = [...arr, 4, 5];
+
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+
+
+Q16.
+what do you mean by error first callback with example.
+In an error-first callback, if an error occurs during the asynchronous operation, it is passed as the first argument to the callback. If there is no error, the first argument is null or undefined, and the subsequent arguments may contain the results of the operation.
+
+
+const fs = require('fs');
+
+// Function to read the contents of a file asynchronously
+function readFileAsync(filePath, callback) {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            // Pass the error to the callback
+            callback(err, null);
+        } else {
+            // Pass the data to the callback
+            callback(null, data);
+        }
+    });
+}
+
+// // Example usage of the readFileAsync function
+const filePath = 'D:/NodejsProjects/nodejsProject/nodejsQuestions/data.txt';
+
+readFileAsync(filePath, (error, content) => {
+    if (error) {
+        console.error(`Error reading the file: ${error.message}`);
+    } else {
+        console.log(`File content: ${content}`);
+    }
+});
+
+
+Q18. what is call and bind
+
+In JavaScript, call and bind are methods available on functions, and they are used to manipulate how a function is invoked and what the value of this is within that function.
+
+call Method:
+The call method is used to invoke a function with a specified this value and arguments provided individually.
+
+const person = {
+  name: 'John',
+  greet: function (greeting) {
+    console.log(`${greeting}, ${this.name}!`);
+  }
+};
+
+const anotherPerson = {
+  name: 'Alice'
+};
+
+// Using call to invoke the greet function with a different 'this' value
+person.greet.call(anotherPerson, 'Hello'); // Output: Hello, Alice!
+
+
+In this example, call is used to invoke the greet function of the person object with anotherPerson as the value of this. This allows the greet function to use the name property from anotherPerson.
+
+bind Method:
+The bind method is used to create a new function with a specified this value and initial arguments. It doesn't immediately invoke the function but returns a new function that, when called, has its this value and initial arguments set as specified.
+
+
+
+
+
+const person = {
+  name: 'John',
+  greet: function (greeting) {
+    console.log(`${greeting}, ${this.name}!`);
+  }
+};
+
+const anotherPerson = {
+  name: 'Alice'
+};
+
+// Using bind to create a new function with a specific 'this' value
+const greetAnotherPerson = person.greet.bind(anotherPerson);
+
+// Invoking the new function
+greetAnotherPerson('Hola'); // Output: Hola, Alice!
+
+
+In this example, bind is used to create a new function greetAnotherPerson that has its this value set to anotherPerson. When greetAnotherPerson is invoked, it uses anotherPerson as the context for this.
+
+Both call and bind are powerful tools in JavaScript for controlling the value of this and providing arguments when invoking functions. They are commonly used in various programming patterns, including event handling, callback functions, and managing context in object-oriented programming.
+
+
+
+
+
+
+
+Q18 why nodejs is single threaded?
+
+nodejs works on single threade model to support the asynchronous processing which provide high performance and efficiency to its applications under high amount of load
+
+Q19. How nodejs can execute code in backedn?
+nodejs use chrome's v8 engine to execute code in backend
+
+Q20.nodejs is made by which languages?
+nodejs is made of c, c++ and javascript
+
+Q21. what is difference between javascript and nodejs
+ javascript can not connect to database but node can,
+ javascript can't run outside the brower and node can
+
+Q22. what is npm
+it is node package manager, it is used to manage all the installed packages.
+
+
+Q23. difference between == and === in nodejs?
+== will compare between only values but === will compare between values and data types
+
+
+Q24. what is work of filter funtion in nodes?
+filter is used to filter out specific element from an array.
+
+
+Q25. in nodejs what http module does?
+in nodejs http module handles the request and response of server.
+
+
+Q26. in nodejs what do you mean by rest api
+rest stands for reprententional state transfer, it is set of rules or guidelines that help us to create webservices that can be easily cosumed by other applications,
+
+let me simplify it, whenever you making request to any rest api, you are telling which data and in which format  you want, then rest api retreives that data from database or from other soruce and send it you in json format
+
+
+Q27. different nodjes frameworks,
+express.js, meter.js, nestjs, sails,js kao.js, hapi.js
+
+Q28. difference between single threaded or multi threaded?
+..  single threaded runs one command at a time but multi threaded can run more than one at a time.
+
+
+Q29. what is docker
+docker is a tool that allows you to package and run software applications in a standarized way.
+it works by creating isolated containers that applications needs to run such as code, libraries, and dependencies
+
+
+Q30. why to use express ja when there other frameworks also available
+Express.js is a popular and widely used web application framework for Node.js, and its popularity can be attributed to several factors:
+
+Simplicity and Minimalism:
+
+Express is known for its simplicity and minimalistic design. It provides the essential features needed to build web applications without unnecessary abstractions, making it easy to learn and use.
+Middleware System:
+
+Express has a powerful middleware system that allows developers to easily extend and customize the functionality of their applications. Middleware functions can handle tasks such as authentication, logging, and error handling.
+Flexibility:
+
+Express is unopinionated and gives developers the flexibility to structure their applications in the way that makes sense for their use case. It doesn't impose a strict project structure, allowing developers to choose their preferred architecture.
+Large and Active Community:
+
+Express has a large and active community of developers. This means there is a wealth of resources, documentation, and third-party middleware available. The community also contributes to the continuous improvement and maintenance of the framework.
+Widely Adopted:
+
+Express has been around for a long time and has been widely adopted in the industry. Many organizations and developers use Express for building web applications, making it a reliable and proven choice.
+Performance:
+
+Express is known for its performance, and it's often used in combination with other tools, such as the Node.js core HTTP module or reverse proxies like Nginx or Apache, to achieve high levels of performance and scalability
+
+
+
+
+
+
+React
+
+react is javascript libraru maintained by facebook and it is used to develop single page applications.
+
+2. what do u mean by single page application
+
+it means without performing page reload we can switch between webpages.
+
+3. why react is fast.
+
+react uses virtual DOM which updates only required component of a web page instead of the whole web page.
+
+4. which apps uses reactjs
+netflix, whatsapp web, instagram, airbnb etc.
+
+5. what is component in react?
+a component is set of code tht can be reused 
+
+6. types of components
+two types, functional and class components,   
+
+7. what is jsx
+javascript extensible markup langauge, it is the combination of javascript and html tags.
+
+
+
