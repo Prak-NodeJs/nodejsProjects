@@ -5,7 +5,7 @@ import { addProduct, getAllProducts } from "../controller/product.controller.js"
 const router = express.Router()
 
 
-router.post('/create', authenticate, addProduct)
+router.post('/create', addProduct)
 
 router.get('/', authenticate, getAllProducts)
 
