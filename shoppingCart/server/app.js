@@ -1,5 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'
+import path from 'path'
 import authRoute from './routes/auth.route.js'
 import userRoute from './routes/user.route.js'
 import productRoute from './routes/product.js'
@@ -19,6 +20,9 @@ mongoose.connect(process.env.MONGO).then(() => {
 const app = express()
 
 app.use(express.json())
+app.use(express.static('D:/NodejsProjects/nodejsProject/shoppingCart/server/public'))
+
+
 app.use(cors())
 app.use('/api/auth', authRoute)
 app.use('/api/user', userRoute)

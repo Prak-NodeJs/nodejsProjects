@@ -3,7 +3,8 @@ import Product from "../model/product.model.js"
 
 export const addProduct = async (req, res) => {
     try {
-        const newProduct = await Product.create({ userId: req.userId, ...req.body })
+        console.log(req.user.id)
+        const newProduct = await Product.create({ userId: req.user.id, ...req.body })
         res.status(201).json({ success: true, data: newProduct })
     } catch (error) {
         next(error)

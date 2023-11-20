@@ -5,9 +5,9 @@ import { addProduct, getAllProducts } from "../controller/product.controller.js"
 const router = express.Router()
 
 
-router.post('/create', addProduct)
+router.post('/create', authenticate, addProduct)
 
-router.get('/', authenticate, getAllProducts)
+router.get('/', getAllProducts)
 
 
 export default router

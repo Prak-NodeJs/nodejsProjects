@@ -1,0 +1,72 @@
+/* Product.css */
+
+.div {
+    margin-top: 20px;
+    width: 80%;
+    margin: auto;
+    color: aliceblue;
+}
+
+h3 {
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+    font-size: larger;
+}
+
+.product_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product_section {
+    box-sizing: border-box;
+    width: 250px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product_section:hover {
+    transform: scale(1.05);
+}
+
+.product_section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product_section:hover img {
+    transform: scale(1.1);
+}
+
+.price {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px;
+    color: white;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Add any additional styling based on your design preferences */

@@ -6,13 +6,15 @@ import { FaLocationPin } from 'react-icons/fa6'
 import './header.css'
 import Menu from '../Menu/Menu'
 import Account from '../Account/Account'
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 /* eslint-disable */
-
 export default function Header() {
     const [menuClicked, setMenuClicked] = useState(false)
     const [userLocation, setUserLocation] = useState('')
     const [userAccountClicked, setuserAccountClicked] = useState(false)
 
+    const { cart } = useSelector((state) => state.cart)
     const handleMenuClick = () => {
         setMenuClicked(!menuClicked)
         if (!menuClicked) {
@@ -70,10 +72,12 @@ export default function Header() {
                         <div className='account'>
                             <BsFillPersonFill onClick={handleAccountClicked} />
                         </div>
-                        <div className='cart'>
-                            <CgShoppingCart />
-                            <div className='badge'>0</div>
-                        </div>
+                        <Link to={'/cart'}>
+                            <div className='cart'>
+                                <CgShoppingCart />
+                                <div className='badge' style={{ color: 'white' }}>{cart.length}</div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
 
